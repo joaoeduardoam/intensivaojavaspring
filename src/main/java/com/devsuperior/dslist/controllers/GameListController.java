@@ -1,6 +1,5 @@
 package com.devsuperior.dslist.controllers;
 
-import com.devsuperior.dslist.dto.GameDTO;
 import com.devsuperior.dslist.dto.GameListDTO;
 import com.devsuperior.dslist.dto.GameMinDTO;
 import com.devsuperior.dslist.services.GameListService;
@@ -18,11 +17,20 @@ import java.util.List;
 public class GameListController {
 
     @Autowired
-    private GameListService service;
+    private GameListService listService;
+
+    @Autowired
+    private GameService gameService;
 
     @GetMapping
     public List<GameListDTO> findAll(){
-        List<GameListDTO> result = service.findAll();
+        List<GameListDTO> result = listService.findAll();
+        return result;
+    }
+
+    @GetMapping(value = "/{listId}/games")
+    public List<GameMinDTO> findByList(@PathVariable Long listId){
+        List<GameMinDTO> result = gameService.findByList(listId);
         return result;
     }
 
