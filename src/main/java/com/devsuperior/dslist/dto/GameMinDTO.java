@@ -16,6 +16,6 @@ public record GameMinDTO(
     }
 
     public GameMinDTO (GameMinProjection projection){
-        this (projection.getId(), projection.getTitle(), projection.getYear(), projection.getImgUrl(), projection.getShortDescription());
+        this (projection.getId(), projection.getTitle(), projection.getGameYear(), projection.getImgUrl(), projection.getShortDescription());
     }
 }
