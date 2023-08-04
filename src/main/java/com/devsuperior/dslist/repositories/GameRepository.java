@@ -3,6 +3,7 @@ package com.devsuperior.dslist.repositories;
 import com.devsuperior.dslist.entities.Game;
 import com.devsuperior.dslist.projections.GameMinProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -18,4 +19,5 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 		ORDER BY tb_belonging.position
 			""")
 	List<GameMinProjection> searchByList(Long listId);
+
 }
