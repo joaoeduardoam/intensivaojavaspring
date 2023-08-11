@@ -20,26 +20,26 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfigurations {
 
 
-    //@Autowired
-    //private SecurityFilterChain securityFilter;
+    @Autowired
+    private SecurityFilter securityFilter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-
         return http.csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                //.authorizeHttpRequests(req -> {
-                //    req.requestMatchers(HttpMethod.POST, "/login").permitAll();
-                //    req.requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll();
-                //    req.anyRequest().authenticated();
-                //})
-                //.addFilterBefore((Filter) securityFilter, UsernamePasswordAuthenticationFilter.class)
+                .authorizeHttpRequests(req -> {
+                    req.requestMatchers(HttpMethod.POST, "/login").permitAll();
+                    req.requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll();
+                    req.anyRequest().authenticated();
+                })
+                .addFilterBefore((Filter) securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
 
     }
 
 
+
     @Bean
-    public AuthenticationManager authenticationManager (AuthenticationConfiguration configuration) throws Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception{
 
         return configuration.getAuthenticationManager();
 

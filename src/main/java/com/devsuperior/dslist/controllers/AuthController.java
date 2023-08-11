@@ -33,7 +33,6 @@ public class AuthController {
             var authentication = manager.authenticate(authenticationToken);
 
             var tokenJWT = tokenService.generateToken((User) authentication.getPrincipal());
-
             return ResponseEntity.ok(new TokenJWTDTO(tokenJWT));
 
 
