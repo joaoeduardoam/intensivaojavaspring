@@ -6,7 +6,8 @@ phases:
       java: corretto17
     commands:
       - echo INSTALL DEPENDENCIES
-      - mvn install
+      - sudo apt update
+      - sudo apt install maven
   build:
     commands:
       - echo BUILD APPLICATION
@@ -15,7 +16,7 @@ phases:
   post_build:
     commands:
       - echo INIT POST BUILD
-      - mvn package
+      - mvn clean package
       - cd target/
       - ls -lha
 artifacts:
