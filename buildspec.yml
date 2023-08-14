@@ -7,18 +7,18 @@ phases:
     commands:
       - echo INSTALL DEPENDENCIES
       - sudo apt update
-      - sudo apt install maven
+      - sudo mvn install
   build:
     commands:
       - echo BUILD APPLICATION
-      - mvn compile
-      - mvn test
+      - sudo mvn compile
+      - sudo mvn test
   post_build:
     commands:
       - echo INIT POST BUILD
-      - mvn clean package
-      - cd target/
-      - ls -lha
+      - sudo mvn clean package
+      - sudo cd target/
+      - sudo ls -lha
 artifacts:
   files:
     - dslist-0.0.1-SNAPSHOT.jar
