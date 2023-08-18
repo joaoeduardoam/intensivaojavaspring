@@ -6,7 +6,7 @@ phases:
       java: corretto17
     commands:
       - echo INSTALL DEPENDENCIES
-      - sudo apt update
+      - sudo yum update
       - sudo mvn install
   build:
     commands:
