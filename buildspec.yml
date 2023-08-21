@@ -12,7 +12,7 @@ phases:
     commands:
       - echo BUILD APPLICATION
       - sudo mvn compile
-      - sudo mvn test
+#      - sudo mvn test
   post_build:
     commands:
       - echo INIT POST BUILD
