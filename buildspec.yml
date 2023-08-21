@@ -11,7 +11,9 @@ phases:
   build:
     commands:
       - echo BUILD APPLICATION
+      - echo BUILD APPLICATION
       - sudo mvn compile
+      - echo BUILD TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
 #      - sudo mvn test
   post_build:
     commands:
