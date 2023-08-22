@@ -6,8 +6,7 @@ phases:
       java: corretto17
     commands:
       - echo INSTALL DEPENDENCIES
-      - export APP_PROFILE=prod
-      - sudo apt update
+      - sudo yum update -y
       - sudo mvn install
   build:
     commands:
